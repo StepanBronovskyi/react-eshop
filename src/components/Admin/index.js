@@ -1,12 +1,10 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import { withProducts } from "../../containers/ProductList/withProducts";
-import ProductListDump from "./ProductList";
+import Product from "./Product";
 import Category from "./Category";
 import Navigation from "./Navigation";
 import * as ROUTES from "../../constants/routes";
 
-const ProductList = withProducts(ProductListDump);
 
 const Admin = () => {
 
@@ -15,7 +13,7 @@ const Admin = () => {
             <Navigation />
             <Switch>
                 <Route exact path={ ROUTES.ADMIN_PRODUCTS }>
-                    <ProductList />
+                    <Product />
                 </Route>
                 <Route path={ ROUTES.ADMIN_CATEGORIES }>
                     <Category/>

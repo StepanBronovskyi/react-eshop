@@ -28,11 +28,9 @@ const ProductListDump = ({ products, currentCategory, searchQuery, priceRange, s
     });
 
     return (
-        <React.Fragment>
-            <Grid container spacing={3}>
-                { loading ? <CircularProgress disableShrink /> : productList }
-            </Grid>
-        </React.Fragment>
+        <Grid container spacing={3}>
+            { loading ? <CircularProgress disableShrink /> : productList }
+        </Grid>
     );
 };
 

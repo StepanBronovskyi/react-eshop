@@ -1,5 +1,7 @@
+import React from "react";
 import { connect } from "react-redux";
 import { setProducts } from "../../actions/product";
+import { useFirebase } from "../../firebase/hooks";
 
 const mapStateToProps = ({ product, category, filter }) => ({
     products: product.items ? product.items : null,
@@ -13,7 +15,8 @@ const mapDispatchToProps = dispatch => ({
     setProducts: products => dispatch(setProducts(products))
 });
 
-const withProducts = (Component) => {
+
+const withProducts = Component => {
     return connect(mapStateToProps, mapDispatchToProps)(Component);
 };
 
