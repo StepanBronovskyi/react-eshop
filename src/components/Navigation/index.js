@@ -18,6 +18,7 @@ import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import AccountMenu from "./AccountMenu";
+import {useAuthenticationServiceContext} from "../../services/authentication/hooks";
 
 const useStyles = makeStyles((theme) => ({
     grow: {
@@ -54,6 +55,19 @@ const useStyles = makeStyles((theme) => ({
 const Navigation = () => {
     const classes = useStyles();
 
+    const authenticationService = useAuthenticationServiceContext();
+
+    const renderAdminUrl = () => {
+
+        return authenticationService.currentUser.isAdmin && (
+            <Link to={ROUTES.ADMIN}>
+                <Typography className={classes.link} variant="h6" noWrap>
+                    Admin
+                </Typography>
+            </Link>
+        );
+    };
+
     return (
         <div className={classes.grow}>
             <AppBar position="static">
@@ -76,6 +90,8 @@ const Navigation = () => {
                             Catalog
                         </Typography>
                     </Link>
+
+                    { renderAdminUrl() }
 
                     <Search/>
 

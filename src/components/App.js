@@ -10,45 +10,26 @@ import FirebaseContext from "../firebase/context";
 import LoginForm from "./Account/LoginForm";
 import { PrivateRoute } from "./PrivateRoute";
 
-const App = ({ products, setProducts }) => {
-
-    const firebase = useContext(FirebaseContext);
-
-    useEffect(() => {
-
-        const getUsers = async () => {
-          const db = firebase.db;
-          const data = await db.collection("users").get();
-          data.forEach(row => console.log(row.data()));
-        };
-
-        getUsers();
-
-        const products = [1, 2, 3];
-        setProducts(products);
-    }, []);
-
-    return (
-        <Router>
-            <div id="App">
-                <Container maxWidth="lg">
-                    <Navigation/>
-                    <Switch>
-                        <Route exact path={ ROUTES.HOME }>
-                            <Home/>
-                        </Route>
-                        <Route path={ROUTES.CATALOG}>
-                            <Catalog/>
-                        </Route>
-                        <PrivateRoute path={ROUTES.ADMIN} component={Admin}/>
-                        <Route path={ROUTES.LOGIN}>
-                            <LoginForm/>
-                        </Route>
-                    </Switch>
-                </Container>
-            </div>
-        </Router>
-    );
-};
+const App = () => (
+    <Router>
+        <div id="App">
+            <Container maxWidth="lg">
+                <Navigation/>
+                <Switch>
+                    <Route exact path={ ROUTES.HOME }>
+                        <Home/>
+                    </Route>
+                    <Route path={ROUTES.CATALOG}>
+                        <Catalog/>
+                    </Route>
+                    <PrivateRoute path={ROUTES.ADMIN} component={Admin}/>
+                    <Route path={ROUTES.LOGIN}>
+                        <LoginForm/>
+                    </Route>
+                </Switch>
+            </Container>
+        </div>
+    </Router>
+);
 
 export default App;

@@ -1,7 +1,7 @@
 class AuthenticationService {
 
     constructor() {
-        this.currentUser = localStorage.getItem('currentUser');
+        this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     }
 
     login = user => {

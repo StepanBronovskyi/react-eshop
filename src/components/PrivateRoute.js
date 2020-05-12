@@ -8,6 +8,8 @@ const PrivateRoute = ({component: Component, ...rest}) => {
 
     const authenticationService = useAuthenticationServiceContext();
 
+    console.log(authenticationService.currentUser);
+
     return (
         <Route
             {...rest}

@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 
-const ProductList = ({ products, currentCategory, searchQuery, priceRange, sortBy, setProducts }) => {
+const ProductListDump = ({ products, currentCategory, searchQuery, priceRange, sortBy, setProducts }) => {
 
     const firebase = useFirebase();
 
@@ -36,4 +36,4 @@ const ProductList = ({ products, currentCategory, searchQuery, priceRange, sortB
     );
 };
 
-export default ProductList;
+export default ProductListDump;

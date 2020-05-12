@@ -1,5 +1,3 @@
-import React, { Component } from "react";
-import ProductList from "../../components/ProductList";
 import { connect } from "react-redux";
 import { setProducts } from "../../actions/product";
 
@@ -12,7 +10,11 @@ const mapStateToProps = ({ product, category, filter }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    setProducts: products => dispatch(setProducts(products)),
+    setProducts: products => dispatch(setProducts(products))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProductList);
+const withProducts = (Component) => {
+    return connect(mapStateToProps, mapDispatchToProps)(Component);
+};
+
+export { withProducts };
